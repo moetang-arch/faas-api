@@ -1,21 +1,3 @@
-# faas-api
-faas api
-
-# 1. mode 1
-
-just functions to run
-
-* create a package and service
-* import "github.com/moetang-arch/faas-api" for initialization
-* ONLY the packages in the allowed list can be used
-
-# 2. mode 2
-
-Not Yet Implement
-
-# 3. Example - mode 1
-
-```
 package demo
 
 import (
@@ -26,7 +8,7 @@ import (
 )
 
 func init() {
-	faas.SetGlobalServicePrefix("set.if.need")
+	faas.SetGlobalServiceNameSpace("set.if.need")
 	faas.Register("demo", HandleRequest)
 }
 
@@ -46,4 +28,3 @@ func HandleRequest(ctx context.Context, request *Request) (response *Response, e
 	resp.Result = "Hello, " + request.Name
 	return resp, nil
 }
-```
