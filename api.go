@@ -3,7 +3,6 @@ package faas
 import (
 	"context"
 	"errors"
-	"fmt"
 	"reflect"
 	"sync"
 )
@@ -37,7 +36,6 @@ func Register(serviceName string, function interface{}) {
 
 func checkFunction(function interface{}) {
 	t := reflect.TypeOf(function)
-	fmt.Println(t)
 	if t.Kind() != reflect.Func {
 		panic(errors.New("type of object is not function"))
 	}
