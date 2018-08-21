@@ -14,6 +14,18 @@ var (
 	lock       = new(sync.Mutex)
 )
 
+// custom serialization
+type Serializable interface {
+	FromJson(json string) error
+	FromBytes(data []byte) error
+}
+
+// custom deserialization
+type Deserializable interface {
+	ToJson() (string, error)
+	ToBytes() ([]byte, error)
+}
+
 // default is configured via control panel
 func SetGlobalServiceNameSpace(namespace string) {
 	_namespace = namespace
